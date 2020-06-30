@@ -17,9 +17,14 @@ const Button = ({name, handler}) => {
 
 const StatisticsLine = ({text, value}) => {
   return (
-    <div>
-    {text} {value}
-  </div>
+  <tr>
+    <td>
+      {text}
+    </td>
+    <td>
+      {value}
+    </td>
+  </tr>
   )
   
 }
@@ -40,12 +45,16 @@ const Statistics = ({good, neutral, bad}) => {
 
   return (
     <div>
-      <StatisticsLine text={goodString} value={good} />
-      <StatisticsLine text={neutralString} value={neutral} />
-      <StatisticsLine text={badString} value={bad} />
-      <StatisticsLine text={allString} value={good + neutral + bad} />
-      <StatisticsLine text={averageString} value={good + bad + neutral} />
-      <StatisticsLine text={positiveString} value={good / (good + neutral + bad) * 100 + ' %'} />
+      <table>
+        <tbody>
+          <StatisticsLine text={goodString} value={good} />
+          <StatisticsLine text={neutralString} value={neutral} />
+          <StatisticsLine text={badString} value={bad} />
+          <StatisticsLine text={allString} value={good + neutral + bad} />
+          <StatisticsLine text={averageString} value={good + bad + neutral} />
+          <StatisticsLine text={positiveString} value={good / (good + neutral + bad) * 100 + ' %'} />
+        </tbody>
+      </table>
     </div>
   )
 }
