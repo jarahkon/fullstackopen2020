@@ -21,7 +21,6 @@ const Notification = ({ successMessage, errorMessage }) => {
       </div>
     )
   }
-  
 }
 
 const Person = ({person, handleDelete}) => {
@@ -67,7 +66,7 @@ const PersonForm = ({ addPerson, newName, handleNewName, newNumber, handleNewNum
 }
 
 const App = () => {
-  const [persons, setPersons] = useState([])
+  const [ persons, setPersons ] = useState([])
   const [ newName, setNewName ] = useState('')
   const [ newNumber, setNewNumber ] = useState('')
   const [ newFilter, setNewFilter ] = useState('')
