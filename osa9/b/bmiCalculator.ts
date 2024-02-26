@@ -1,4 +1,4 @@
-const calculateBmi = (height: number, weight: number): string => {
+export const calculateBmiResult = (height: number, weight: number): string => {
   const bmi = weight / ((height / 100) ** 2);
   if (bmi < 16) {
   return 'Underweight (severe thinness)';
@@ -24,4 +24,30 @@ const calculateBmi = (height: number, weight: number): string => {
   else return 'Obese (class III)'
 }
 
-console.log(calculateBmi(180, 74));
+const calculateBmi = (): string => {
+  const args = process.argv;
+  if (args.length < 4) throw new Error('Not enough parameters');
+  if (args.length > 4) throw new Error('Too many parameters');
+
+  let height = 0;
+  let weight = 0;
+
+  if (!isNaN(Number(args[2])) && !isNaN(Number(args[3]))) {
+    height = Number(args[2]);
+    weight = Number(args[3]);
+  } else {
+    throw new Error('Provided values were not numbers');
+  }
+
+  return calculateBmiResult(height, weight);
+}
+
+try {
+  console.log(calculateBmi());
+} catch (error) {
+  let errorMessage = 'Something went wrong: ';
+  if (error instanceof Error) {
+    errorMessage += error.message;
+  }
+  console.log(errorMessage);
+}
