@@ -31,9 +31,9 @@ const calculateExercises = (): ExerciseResult => {
 
   return calculateExerciseResult(exerciseList, target);
 
-}
+};
 
-const calculateExerciseResult = (exerciseList: number[], target: number): ExerciseResult => {
+export const calculateExerciseResult = (exerciseList: number[], target: number): ExerciseResult => {
   if (target <= 0) {
     throw new Error('target should be greater than 0');
   }
@@ -62,8 +62,8 @@ const calculateExerciseResult = (exerciseList: number[], target: number): Exerci
     ratingDescription,
     target,
     average
-  }
-}
+  };
+};
 
 try {
   console.log(calculateExercises());
